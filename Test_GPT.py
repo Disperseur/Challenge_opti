@@ -129,15 +129,16 @@ def allocate_processes_to_machines(processes, machines, services):
 
 # Exemple d'utilisation
 
-file_path = 'data1.txt'  # Chemin vers le fichier d'entrée
-team_name = 'EQUIPE G&A'
-instance_number = 1
-output_file_path = f'res_{instance_number}.txt'
+for i in range(1, 16) :
+    file_path = f'data{i}.txt'  # Chemin vers le fichier d'entrée
+    team_name = 'EQUIPE G&A'
+    instance_number = i
+    output_file_path = f'res_{instance_number}.txt'
 
-processes, machines, services = read_input(file_path)
-success, allocation = allocate_processes_to_machines(processes, machines, services)
-if success:
-    write_output(output_file_path, team_name, instance_number, allocation)
-    print("Allocation réussie et fichier de sortie généré")
-else:
-    print("Échec de l'allocation")
+    processes, machines, services = read_input(file_path)
+    success, allocation = allocate_processes_to_machines(processes, machines, services)
+    if success:
+        write_output(output_file_path, team_name, instance_number, allocation)
+        print("Allocation réussie et fichier de sortie généré")
+    else:
+        print("Échec de l'allocation")
