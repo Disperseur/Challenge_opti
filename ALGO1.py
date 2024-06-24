@@ -31,7 +31,7 @@ class Allocation:
 
 
 
-"IMPLEMENTATION DES FONCTIONS AUXILIAIRES"
+"FONCTIONS AUXILIAIRES"
 
 def testRessources(process, machine):
     for r in range(len(machine.capacities)):
@@ -39,9 +39,12 @@ def testRessources(process, machine):
             return False
     return True
 
+
 def updateRessources(process, machine):
     for r in range(len(machine.capacities)):
         machine.current_load[r] += process.resource_needs[r]
+
+
 
 def testNewLoc(process, machines, service, useLoc):
     for machine in machines:
@@ -49,11 +52,15 @@ def testNewLoc(process, machines, service, useLoc):
             return machine
     return None
 
+
+
 def testAll(process, machines, service, useMach):
     for machine in machines:
         if not useMach[machine.id][service.id] and testRessources(process, machine):
             return machine
     return None
+
+
 
 def read_input(file_path):
     with open(file_path, 'r') as file:
@@ -88,6 +95,9 @@ def read_input(file_path):
         processes.append(Process(i, service, resource_needs))
 
     return processes, machines, services
+
+
+
 
 def write_output(file_path, team_name, instance_number, allocation):
     with open(file_path, 'w') as file:
