@@ -42,12 +42,5 @@ processus_data = []
 for line in lines[processus_start:]:
     processus_data.append([int(x) for x in line.split()])
 
-# Creating DataFrames
-machines_df = pd.DataFrame(machines_data, columns=['Localisation'] + [f'Resource_{i}' for i in range(nbRessources)])
-services_df = pd.DataFrame(services_data, columns=['Service'])
-processus_df = pd.DataFrame(processus_data, columns=['Service'] + [f'Resource_{i}' for i in range(nbRessources)])
 
-# Display DataFrames
-import ace_tools as tools; tools.display_dataframe_to_user(name="Machines Data", dataframe=machines_df)
-tools.display_dataframe_to_user(name="Services Data", dataframe=services_df)
-tools.display_dataframe_to_user(name="Processus Data", dataframe=processus_df)
+print(processus_data)
