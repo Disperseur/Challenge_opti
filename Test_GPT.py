@@ -92,7 +92,7 @@ def read_input(file_path):
 def write_output(file_path, team_name, instance_number, allocation):
     with open(file_path, 'w') as file:
         file.write(f"{team_name}\n")
-        file.write(f"{instance_number}\n")
+        file.write(f"INSTANCE {instance_number}\n")
         file.write(' '.join(map(str, allocation)) + '\n')
 
 
